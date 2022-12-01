@@ -18,11 +18,15 @@ async function getAnimeId(value) {
     img.toLowerCase();
     li.style.backgroundImage = `url(${img})`;
     li.setAttribute("id", data[i].animeId);
-    document.getElementById("search-result").appendChild(li);
+    searchResultDiv.appendChild(li);
     li.addEventListener("click", () => {
       console.log(li.getAttribute("id"));
     });
   }
 }
-
-getAnimeId("naruto");
+searchButton.addEventListener("click", () => {
+  if (searchBox.value != " ") {
+    searchResultDiv.innerHTML = "";
+    getAnimeId(searchBox.value);
+  }
+});

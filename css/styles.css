@@ -66,10 +66,16 @@ header {
 
 .search-container .content button {
   width: 120px;
-  height: 32px;
+  height: 35px;
   background: transparent;
   border: 2px solid #f5cc;
   text-align: center;
   color: #f5cc;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.search-container .content button:hover {
+  background: #f5cc;
+  color: #fff;
 }
