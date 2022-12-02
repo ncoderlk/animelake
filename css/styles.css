@@ -44,6 +44,7 @@ header span {
   overflow: hidden;
   background-image: url("../img/no-image.png");
   border-radius: 15px;
+  cursor: pointer;
 }
 
 #search-result li:hover div::before {
@@ -98,6 +99,17 @@ header span {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bolder;
+}
+
+img {
+  border-radius: 100%;
+  width: 200px;
+  margin: 100px auto;
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
 
 .search-container .content button:hover {
