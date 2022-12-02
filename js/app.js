@@ -2,6 +2,31 @@ const searchBox = document.getElementById("search-box");
 const searchButton = document.getElementById("search-button");
 const searchResultDiv = document.getElementById("search-result");
 const loadingIco = document.getElementById("loading");
+const main = document.getElementById("main");
+async function searchById(val) {
+  if (val !== "") {
+    const res = await fetch(
+      `https://gogoanime.consumet.org/anime-details/${val}`
+    );
+    const data = await res.json();
+    console.log(data);
+    searchResultDiv.style.display = "none";
+    main.style.display = "flex";
+    main.innerHTML = `
+    <div style="background-image: url('${data.animeImg}')"></div>
+    <h1>${data.animeTitle}</h1>
+    <h2>${data.otherNames}</h2>
+    <p>${data.synopsis}</p>
+    <ul>
+    <!--Generes-->
+    </ul>
+    <span>Total episodes: ${data.totalEpisodes}</span><br>
+    <span>Released Year: ${data.realeasedDear}</span><br>
+    <span>Type: ${data.type}</span>
+    `;
+  }
+}
+
 async function getAnimeId(value) {
   //Fetching AnimeIds On Submit
   const res = await fetch(
@@ -24,7 +49,7 @@ async function getAnimeId(value) {
       li.setAttribute("id", data[i].animeId);
       searchResultDiv.appendChild(li);
       li.addEventListener("click", () => {
-        console.log(li.getAttribute("id"));
+        searchById(li.getAttribute("id"));
       });
     }
   }, 1400);

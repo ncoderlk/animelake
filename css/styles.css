@@ -167,3 +167,50 @@ input::placeholder {
     background-image: linear-gradient(to right, #0094c6, #001242);
   }
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+main div {
+  width: 200px;
+  height: 300px;
+  background-image: url('../img/no-image.png');
+  border-radius: 5px;
+}
+
+main h1 {
+  color: #0094c6;
+  margin-top: 10px;
+}
+
+main h2 {
+  color: #005E7C;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: Nerko One;
+}
+
+main p {
+  color: #fff;
+}
+
+main ul {
+  display: flex;
+  flex-direction: column;
+}
+
+main span {
+  color: #ccc;
+}
+
+main span:first {
+  margin-top: 30px;
+}
