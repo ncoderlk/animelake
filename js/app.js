@@ -10,8 +10,6 @@ async function searchById(val) {
     );
     const data = await res.json();
     console.log(data);
-    searchResultDiv.style.display = "none";
-    main.style.display = "flex";
     main.innerHTML = `
     <div style="background-image: url('${data.animeImg}')"></div>
     <h1>${data.animeTitle}</h1>
@@ -35,6 +33,7 @@ async function getAnimeId(value) {
   const data = await res.json();
   console.log(data);
   //Displaying Search Results
+
   loadingIco.classList.toggle("hidden");
   setTimeout(() => {
     loadingIco.classList.toggle("hidden");
@@ -53,6 +52,8 @@ async function getAnimeId(value) {
         searchResultDiv.appendChild(li);
         li.addEventListener("click", () => {
           searchById(li.getAttribute("id"));
+          searchResultDiv.style.display = "none";
+          main.style.display = "flex";
         });
       }
     }
@@ -63,6 +64,8 @@ searchBox.addEventListener("keydown", (e) => {
     if (searchBox.value !== "") {
       searchResultDiv.innerHTML = "";
       getAnimeId(searchBox.value);
+      searchResultDiv.style.display = "flex";
+      main.style.display = "none";
     }
   }
 });
@@ -70,5 +73,7 @@ searchButton.addEventListener("click", () => {
   if (searchBox.value != "") {
     searchResultDiv.innerHTML = "";
     getAnimeId(searchBox.value);
+    searchResultDiv.style.display = "flex";
+    main.style.display = "none";
   }
 });
