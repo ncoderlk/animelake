@@ -38,19 +38,23 @@ async function getAnimeId(value) {
   loadingIco.classList.toggle("hidden");
   setTimeout(() => {
     loadingIco.classList.toggle("hidden");
-    for (let i = 0; i < data.length; i++) {
-      //Creating a li element for Each
-      const li = document.createElement("li");
-      li.innerHTML = `<div><span>${data[i].animeTitle}</span></div>`;
-      let img = data[i].animeImg;
-      img.split(" ").join("-");
-      img.toLowerCase();
-      li.style.backgroundImage = `url(${img})`;
-      li.setAttribute("id", data[i].animeId);
-      searchResultDiv.appendChild(li);
-      li.addEventListener("click", () => {
-        searchById(li.getAttribute("id"));
-      });
+    if (data.length < 0 || data === []) {
+      searchResultDiv.innerText = "No Results Found";
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        //Creating a li element for Each
+        const li = document.createElement("li");
+        li.innerHTML = `<div><span>${data[i].animeTitle}</span></div>`;
+        let img = data[i].animeImg;
+        img.split(" ").join("-");
+        img.toLowerCase();
+        li.style.backgroundImage = `url(${img})`;
+        li.setAttribute("id", data[i].animeId);
+        searchResultDiv.appendChild(li);
+        li.addEventListener("click", () => {
+          searchById(li.getAttribute("id"));
+        });
+      }
     }
   }, 1400);
 }
