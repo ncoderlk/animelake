@@ -34,6 +34,9 @@ header span {
   list-style: none;
   padding-left: 0;
 }
+header div{
+cursor:pointer;
+}
 
 #search-result li {
   width: 200px;
