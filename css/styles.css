@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nerko+One&family=Patrick+Hand&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,18 +7,23 @@
 }
 
 body {
-  background-color: rgba(0, 0, 46, 0.938);
+  background-color: #040f16;
+  font-family: Poppins;
 }
 
 header {
   width: 100%;
-  background-color: rgba(0, 0, 85, 0.658);
   padding: 10px;
-  font-size: 30px;
-  color: #f5cc;
+  font-size: 38px;
+  color: #0094c6;
   font-weight: bolder;
   text-align: center;
   font-family: sans-serif;
+  font-family: Kaushan Script;
+}
+
+header span {
+  color: #001242;
 }
 
 #search-result {
@@ -32,28 +39,44 @@ header {
 #search-result li {
   width: 200px;
   height: 300px;
-  margin: 10px;
+  margin: 20px;
   list-style-type: none;
   overflow: hidden;
   background-image: url("../img/no-image.png");
+  border-radius: 15px;
+}
+
+#search-result li:hover div::before {
+  content: '';
+  position: absolute;
+  animation: linear-gradient 1s linear infinite;
+  width: 200px;
+  height: 10px;
+  left: 0;
+  top: -3px;
 }
 
 #search-result li div {
   text-align: center;
   margin-top: 240px;
-  background-color: #252525dc;
+  background-color: #040f16b0;
   padding: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
   overflow: hidden;
   color: #fff;
   backdrop-filter: blur(10px);
+  font-weight: bold;
+}
+
+#search-result li:hover {
+  box-shadow: 0 0 18px #0094c6, 0 0 18px #005E7C;
 }
 
 .search-container .content {
   width: 100%;
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -61,21 +84,74 @@ header {
 .search-container .content input {
   width: 250px;
   height: 30px;
-  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 7px;
 }
 
 .search-container .content button {
   width: 120px;
   height: 35px;
   background: transparent;
-  border: 2px solid #f5cc;
+  border: 2px solid #0094c6;
   text-align: center;
-  color: #f5cc;
+  color: #0094c6;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: bolder;
 }
 
 .search-container .content button:hover {
-  background: #f5cc;
+  background: #0094c6;
   color: #fff;
+  box-shadow: 0 0 8px #005E7C, 0 0 8px #001242;
+}
+
+input:focus {
+  outline: #005E7C solid 2px;
+}
+
+input {
+  text-align: center;
+  background: transparent;
+  outline: #005E7C solid 2px;
+  font-weight: bold;
+  color: #0094c6;
+}
+
+input::placeholder {
+  color: #005E7C;
+}
+
+@media (min-width:486px) {
+  .search-container .content {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-container .content input {
+    width: 250px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:1200px) {
+  header {
+    font-size: 45px;
+  }
+}
+
+@keyframes linear-gradient {
+  0% {
+    background-image: linear-gradient(to right, #001242, #0094c6);
+  }
+
+  100% {
+    background-image: linear-gradient(to right, #0094c6, #001242);
+  }
 }
